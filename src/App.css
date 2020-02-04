@@ -1,0 +1,37 @@
+/* .box {
+	background: gray;
+	width: 64px;
+	height: 64px;
+} */
+.template {
+	display: flex;
+}
+.logo {
+	margin-top: 1rem;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.studyOpic {
+	font-size: 1.3rem;
+	margin-top: 1.3rem;
+	flex: auto;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	
+}
+
+.registerText {
+	margin-top: 1.3rem;
+	flex-direction: row ;
+	justify-content: space-between;
+
+}
+
+.loginText {
+	margin-top: 1.3rem;
+	flex-direction: row ;
+	justify-content: space-between;
+}
