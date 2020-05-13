@@ -1,0 +1,62 @@
+
+// $oc-violet-6
+$gray-0: #f8f9fa;
+$gray-7: #495057;
+$gray-8: #343a40;
+$gray-9: #212529;
+$textColor: #515a5f;
+
+.registerPage {
+    height: 500px;
+}
+
+.content-box-signup {
+ 
+    position: relative;
+    background: #eee;
+    border-radius: 7px;
+    padding: 30px 45px;
+    
+    text-align: left;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    h1 {
+        color: $textColor;
+        font-size: 20px;
+        text-align: center;
+        line-height: 28px;
+        padding-bottom: 22px;
+    }
+
+}
+.row {
+    position: relative;
+    margin-right: 15px;
+    margin-left: 15px;
+    min-height: 1px;
+}
+
+a, div, input, label, p, span, ul {
+    font-size: 16px!important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.5em;
+}
+
+
+input {
+    // border: none;
+    // border-bottom: 1px solid $gray-8;
+    // background-color: $gray-0;
+    // background-position: 10px 10px;
+    
+}
+
+
+
+// float 이미지를 어떻게 띄워서 텍스트와 함께 배치할 것 인지

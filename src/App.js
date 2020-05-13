@@ -1,88 +1,60 @@
-import React, {useRef, useState} from 'react';
-import Login from './LoginForm';
-import './App.css'
-import { Route, NavLink } from 'react-router-dom';
-import Wrapper from './Wrapper';
+import React from 'react';
+import { Route, Switch, BrowserRouter as Router, withRouter } from 'react-router-dom';
+import './App.css';
 
-import logo from './images/logo.png';
-import TabPointg from './topics/TabPointing';
+import MainPage from './components/views/MainPage';
+import LoginPage from './components/views/Login/LoginPage';
+import RegisterPage from './components/views/Login/RegisterPage';
+import myPage from './components/views/myPage/myPage';
+import Auth from './components/Auth/Auth';
+import { createGlobalStyle } from 'styled-components';
 
-const Home = () => <h1>Home</h1>;
-const About = () => <h1>About</h1>;
+import HeaderContainer from './components/views/Header/HeaderContainer';
 
-const List = () => (
-  <ul>
-    <li>list</li>
-    <li>list</li>
-    <li>list</li>
-  </ul>
-);
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #e9ecef;
+  }
+`;
 
-const activeStyle = {
-  color: "red"
-};
+const NotFound = () => {
+  return <h1>Not Found!</h1>;
+}
 
-// class 안의 함수는 function을 생략한다.
-// 컴포넌트를 만드는 템플릿 
-// 요청이 들어왔을 때 그 요청에 맞는 컴포넌트를 보여주는 역할을 하는 Route
-// path props를 받는다.
-const App = () => {
-
-  
-  return(
-    // <div>
-    //   <Route exact path="/" component={Home} />
-    //   <Route path="/about" component={About} />
-    //   <Route path="/list" component={List} />
-    // </div>
-    <>
-      <Wrapper>   
-        <div className="template">
-          <img
-            className="logo" 
-				    src={logo} 
-				    alt="Logo" 
-				    width="40px" 
-				    height="40px"
-			    />
-          
-          <h1 className="studyOpic">Study Opic!</h1>
-          <div className="registerText">계정만들기</div>
-			    <div className="loginText">로그인</div>
-        </div>
-      </Wrapper>
-
-      <div>  
-        <ul>
-          <li>
-            {/* 액티브 스타일: 클릭 시 빨간색으로 설정함 */}
-            <NavLink exact to="/" activeStyle={activeStyle}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" activeStyle={activeStyle}>
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/list" activeStyle={activeStyle}>
-              List
-            </NavLink>
-          </li>
-        </ul>
-       
-
-        <footer>
-
-        </footer>
-      </div>
-
-      
-    </>  
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+ 
+        {/** 
+       <GlobalStyle />
+        <TodoTemplate>
+          <TodoHead />
+          <TodoList />
+          <TodoCreate />
+        </TodoTemplate>
+        */}
+        <HeaderContainer />
+        <Router>
+          <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/auth" component={Auth} />
+          <Route path="/about" component /> 
+          <Route path="/profiles" component />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/myPage" component={myPage} />
+          <Route path="/scriptMain" component />
+          <Route component={NotFound} />
     
-  );
-};
+        </Switch>
+      </Router>
+    
+      </div>
+    );
+  }
+}
 
-
+// withRouter history, location, match props를 제공
+// history: go, goBack (앞으로가기 뒤로 가기)
 export default App;
