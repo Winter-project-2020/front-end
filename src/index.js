@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import configureStore from './redux/configureStore';
+import { AppContainer } from 'react-hot-loader';
 
 const store = configureStore();
 
