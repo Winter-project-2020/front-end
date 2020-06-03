@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Root from './Root';
@@ -18,12 +18,25 @@ const theme = createMuiTheme({
 });
 
 // 스토어를 Root의 컴포넌트의 props로 전달
+// <Root store={store} />
 
-ReactDOM.render(
-      <Root store={store} />, document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// 리액트 핫 로더 적용하기위해 AppContainer 를 통하여 Root 컴포넌트를 적용
+// module.hot 관련 코드 작성 
+const render = Component => {
+	ReactDOM.render(
+		<AppContainer>
+			<Component store={store} />
+		</AppContainer>, 
+		
+		document.getElementById('root')
+  );
+};
+
+render(Root);
+
+if (module.hot) {
+	module.hot.accept('./Root', () => render(Root));
+}
+
 serviceWorker.unregister();

@@ -1,16 +1,11 @@
 import React from 'react'
-import styles from './Header.scss';
-import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
-import { MdLock } from 'react-icons/md';
-import { FiBookOpen } from 'react-icons/fi';
 
 import styled from 'styled-components';
 import oc from 'open-color';
 import { shadow, media } from '../../../lib/styleUtil';
 
 
-const cx = classNames.bind(styles);
+
 
 // 상단 고정, 그림자
 const Positioner = styled.div`
@@ -47,11 +42,11 @@ const HeaderContents = styled.div`
     `}
 `;
 
-// 로고
+// 로고 : cyan 7
 const Logo = styled.div`
     font-family: 'Rajdhani';
-    font-size: 1.7rem;
-    letter-spacing: 2px;
+    font-size: 32px;
+    letter-spacing: 2.1px;
     color: ${oc.cyan[7]};
 `;
 
@@ -63,7 +58,7 @@ const Spacer = styled.div`
 // 하단 그래디언트 테두리
 const GradientBorder = styled.div`
     height: 3px;
-    background: linear-gradient(to right, ${oc.cyan[5]}, ${oc.cyan[4]});
+    background: linear-gradient(to right, ${oc.cyan[6]}, ${oc.teal[5]});
 `;
 
 function Header({children}) {

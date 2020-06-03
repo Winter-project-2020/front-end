@@ -1,14 +1,40 @@
 import React, { useState } from 'react'
-import styles from './myPage.scss';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { AiFillLeftCircle } from 'react-icons/ai';
-import { Button } from 'react-bootstrap';
+import styled from 'styled-components';
+import oc from 'open-color';
+
+import { shadow, media } from '../../../lib/styleUtil';
+import { FaUserAlt, FaRegThumbsUp, FaRegCalendarAlt, FaRegChartBar } from 'react-icons/fa';
 
 
-const cx = classNames.bind(styles);
+// 고정
+const Positioner = styled.div`
+    position: fixed;
+  
+    left: 0;
+    width: 25%;
+    height: 100%;
+    margin-top: 58px;
+    background: ${oc.gray[5]};
+    ${shadow(1)};
+`;
 
-function myPage({ history }) {
+const Label = styled.div`
+    font-size: 1.125rem;
+    color: ${oc.gray[7]};
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+    
+    
+    line-height: 2rem;
+    
+    padding-left: 1rem;
+    padding-right: 2rem;
+`;
+
+function myPage() {
+
+    
 
     // const go = () => {
 
@@ -19,32 +45,13 @@ function myPage({ history }) {
     // };
 
 
-
     return (
-        <div className="myPage">
-            <div className="myPage-header">
-                <Button 
-                    className={cx("btn-goBack")} 
-                    type="button"  
-                    onClick={() => {
-                        history.goBack();
-                    }} >
-                   <AiFillLeftCircle />
-                </Button>
-            </div>
-
-            <div className={cx("myPage-sidebar")}>
-                <span 
-                    role="presentation"
-           
-               
-                    >사이드바 접기</span>
-            </div>
-
-            <div className={cx("myPage-content")}>
-            </div>
-        
-        </div>
+        <Positioner>
+            <Label><FaUserAlt /> Edit Profile</Label>
+            <Label><FaRegThumbsUp /> 추천 토픽</Label>
+            <Label><FaRegCalendarAlt /> 시험 일정</Label>
+            <Label><FaRegChartBar /> 성적 관리</Label>
+        </Positioner>
     );
 }
 

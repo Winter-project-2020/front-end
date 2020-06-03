@@ -41,8 +41,7 @@ class App extends React.Component {
           <Route path="/auth" component={Auth} />
           <Route path="/about" component /> 
           <Route path="/profiles" component />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/login" component={LoginPage} />
+       
           <Route path="/myPage" component={myPage} />
           <Route path="/scriptMain" component />
           <Route component={NotFound} />

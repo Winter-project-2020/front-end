@@ -1,5 +1,4 @@
 import React from 'react';
-import './RegisterPage.scss';
 
 import { MdCheckBox, MdTrendingFlat } from 'react-icons/md';
 import Header from '../Header/Header';

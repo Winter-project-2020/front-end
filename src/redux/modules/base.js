@@ -7,6 +7,7 @@ import { handleActions, createAction } from 'redux-actions';
 
 
 // 헤더 렌더링 여부
+// 헤더를 숨기고 보여주는 액션
 const SET_HEADER_VISIBILITY = 'base/SET_HEADER_VISIBILITY';
 
 export const setHeaderVisibility = createAction(SET_HEADER_VISIBILITY);
